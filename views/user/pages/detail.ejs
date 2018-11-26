@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="en-US" itemscope="itemscope" itemtype="http://schema.org/WebPage">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no">
+        <title>Chi tiết</title>
+        <link rel="stylesheet" type="text/css" href="/assets/css/bootstrap.min.css" media="all" />
+        <link rel="stylesheet" type="text/css" href="/assets/css/font-awesome.min.css" media="all" />
+        <link rel="stylesheet" type="text/css" href="/assets/css/bootstrap-grid.min.css" media="all" />
+        <link rel="stylesheet" type="text/css" href="/assets/css/bootstrap-reboot.min.css" media="all" />
+        <link rel="stylesheet" type="text/css" href="/assets/css/font-techmarket.css" media="all" />
+        <link rel="stylesheet" type="text/css" href="/assets/css/slick.css" media="all" />
+        <link rel="stylesheet" type="text/css" href="/assets/css/techmarket-font-awesome.css" media="all" />
+        <link rel="stylesheet" type="text/css" href="/assets/css/slick-style.css" media="all" />
+        <link rel="stylesheet" type="text/css" href="/assets/css/animate.min.css" media="all" />
+        <link rel="stylesheet" type="text/css" href="/assets/css/style.css" media="all" />
+        <link rel="stylesheet" type="text/css" href="/assets/css/colors/green.css" media="all" />
+        
+        <link href="https://fonts.googleapis.com/css?family=Rubik:300,400,500,900" rel="stylesheet">
+        <link rel="shortcut icon" href="/assets/images/fav-icon.png">
+    </head>
+    <body class="woocommerce-active single-product full-width normal  pace-done">
+        <div id="page" class="hfeed site">
+            <% include ./partials/header %>
+            <!-- .header-v1 -->
+            <!-- ============================================================= Header End ============================================================= -->
+            <%
+            function formatNumber(nStr, decSeperate, groupSeperate) {
+                nStr += '';
+                x = nStr.split(decSeperate);
+                x1 = x[0];
+                x2 = x.length > 1 ? '.' + x[1] : '';
+                var rgx = /(\d+)(\d{3})/;
+                while (rgx.test(x1)) {
+                    x1 = x1.replace(rgx, '$1' + groupSeperate + '$2');
+                }
+                return x1 + x2;
+            }
+            %>
+            <div id="content" class="site-content" tabindex="-1">
+                    <div class="col-full">
+                        <div class="row">
+                            <nav class="woocommerce-breadcrumb">
+                                <a href="/">Trang chủ</a>
+                                <span class="delimiter">
+                                    <i class="tm tm-breadcrumbs-arrow-right"></i>
+                                </span><a href="/product/<%= book[0].theloai %>"><%= book[0].theloai %></a>
+                                <span class="delimiter">
+                                    <i class="tm tm-breadcrumbs-arrow-right"></i>
+                                </span> <%= book[0].tieude %>
+                            </nav>
+                            <!-- .woocommerce-breadcrumb -->
+                            <div id="primary" class="content-area">
+                                <main id="main" class="site-main">
+                                    <div class="product product-type-simple">
+                                        <div class="single-product-wrapper">
+                                            <div class="product-images-wrapper thumb-count-4">
+                                                <span class="onsale">-
+                                                    <span class="woocommerce-Price-amount amount">
+                                                        <%=formatNumber((book[0].gia*1.2) - book[0].gia,'.',',')%></span>
+                                                        <span class="woocommerce-Price-currencySymbol">₫</span>
+                                                </span>
+                                                <!-- .onsale -->
+                                                <div id="techmarket-single-product-gallery" class="techmarket-single-product-gallery techmarket-single-product-gallery--with-images techmarket-single-product-gallery--columns-4 images" data-columns="4">
+                                                    <div class="techmarket-single-product-gallery-images" data-ride="tm-slick-carousel" data-wrap=".woocommerce-product-gallery__wrapper" data-slick="{&quot;infinite&quot;:false,&quot;slidesToShow&quot;:1,&quot;slidesToScroll&quot;:1,&quot;dots&quot;:false,&quot;arrows&quot;:false,&quot;asNavFor&quot;:&quot;#techmarket-single-product-gallery .techmarket-single-product-gallery-thumbnails__wrapper&quot;}">
+                                                        <div class="woocommerce-product-gallery woocommerce-product-gallery--with-images woocommerce-product-gallery--columns-4 images" data-columns="4">
+                                                            <a href="#" class="woocommerce-product-gallery__trigger">🔍</a>
+                                                            <figure class="woocommerce-product-gallery__wrapper ">
+                                                                <% book[0].hinhanh.forEach((hinh) => { %>
+                                                                    <div data-thumb="<%= hinh %>" class="woocommerce-product-gallery__image">
+                                                                        <a href="<%= hinh %>" tabindex="0">
+                                                                            <img width="600" height="600" src="<%= hinh %>" class="attachment-shop_single size-shop_single wp-post-image" alt="">
+                                                                        </a>
+                                                                    </div>
+                                                                <% }) %>
+                                                            </figure>
+                                                        </div>
+                                                        <!-- .woocommerce-product-gallery -->
+                                                    </div>
+                                                    <!-- .techmarket-single-product-gallery-images -->
+                                                    <div class="techmarket-single-product-gallery-thumbnails" data-ride="tm-slick-carousel" data-wrap=".techmarket-single-product-gallery-thumbnails__wrapper" data-slick="{&quot;infinite&quot;:false,&quot;slidesToShow&quot;:4,&quot;slidesToScroll&quot;:1,&quot;dots&quot;:false,&quot;arrows&quot;:true,&quot;vertical&quot;:true,&quot;verticalSwiping&quot;:true,&quot;focusOnSelect&quot;:true,&quot;touchMove&quot;:true,&quot;prevArrow&quot;:&quot;&lt;a href=\&quot;#\&quot;&gt;&lt;i class=\&quot;tm tm-arrow-up\&quot;&gt;&lt;\/i&gt;&lt;\/a&gt;&quot;,&quot;nextArrow&quot;:&quot;&lt;a href=\&quot;#\&quot;&gt;&lt;i class=\&quot;tm tm-arrow-down\&quot;&gt;&lt;\/i&gt;&lt;\/a&gt;&quot;,&quot;asNavFor&quot;:&quot;#techmarket-single-product-gallery .woocommerce-product-gallery__wrapper&quot;,&quot;responsive&quot;:[{&quot;breakpoint&quot;:765,&quot;settings&quot;:{&quot;vertical&quot;:false,&quot;horizontal&quot;:true,&quot;verticalSwiping&quot;:false,&quot;slidesToShow&quot;:4}}]}">
+                                                        <figure class="techmarket-single-product-gallery-thumbnails__wrapper">
+                                                            <% book[0].hinhanh.forEach((hinh) => { %>
+                                                                <figure data-thumb="<%= hinh %>" class="techmarket-wc-product-gallery__image">
+                                                                    <img width="180" height="180" src="<%= hinh %>" class="attachment-shop_thumbnail size-shop_thumbnail wp-post-image" alt="">
+                                                                </figure>
+                                                            <% }) %> 
+                                                        </figure>
+                                                        <!-- .techmarket-single-product-gallery-thumbnails__wrapper -->
+                                                    </div>
+                                                    <!-- .techmarket-single-product-gallery-thumbnails -->
+                                                </div>
+                                                <!-- .techmarket-single-product-gallery -->
+                                            </div>
+                                            <!-- .product-images-wrapper -->
+                                            <div class="summary entry-summary">
+                                                <div class="single-product-header">
+                                                    <h1 class="product_title entry-title"><%= book[0].tieude %></h1>
+                                                    <a class="add-to-wishlist" href="wishlist.html"> Add to Wishlist</a>
+                                                </div>
+                                                <!-- .single-product-header -->
+                                                <div class="single-product-meta">
+                                                    <div class="brand">
+                                                        <a href="#">
+                                                            <img alt="galaxy" src="https://www.tabla.sg/jr/images/load_book_01.jpg">
+                                                        </a>
+                                                    </div>
+                                                    <div class="cat-and-sku">
+                                                        <span class="posted_in categories">
+                                                            <a rel="tag" href="product-category.html"><%= book[0].theloai %></a>
+                                                        </span>
+                                                        <span class="sku_wrapper">SKU:
+                                                            <span class="sku"><%= book[0].SKU %></span>
+                                                        </span>
+                                                    </div>
+                                                    <div class="product-label">
+                                                    </div>
+                                                </div>
+                                                <!-- .single-product-meta -->
+                                                <div class="woocommerce-product-details__short-description">
+                                                    <ul>
+                                                        <li>Tác giả:&nbsp;<%= book[0].tacgia %></li>
+                                                        <li>Kích thước:&nbsp;<%= book[0].kichthuoc %></li>
+                                                        <li>Số trang:&nbsp;<%= book[0].sotrang %></li>
+                                                        <li>Nhà xuất bản:&nbsp;<%= book[0].nhaxuatban %></li>
+                                                        <li>Nhà phát hành:&nbsp;<%= book[0].nhaphathanh %></li>
+                                                    </ul>
+                                                </div>
+                                                <!-- .woocommerce-product-details__short-description -->
+                                                <div class="product-actions-wrapper">
+                                                    <div class="product-actions">
+                                                        <p class="price">
+                                                            <del>
+                                                                <span class="woocommerce-Price-amount amount">
+                                                                    <%=formatNumber(book[0].gia*1.2,'.',',')%></span>
+                                                                    <span class="woocommerce-Price-currencySymbol">₫</span>
+                                                            </del>
+                                                            <ins>
+                                                                <span class="woocommerce-Price-amount amount">
+                                                                    </span><%=formatNumber(book[0].gia,'.',',')%></span>
+                                                                    <span class="woocommerce-Price-currencySymbol">₫</span>
+                                                            </ins>
+                                                        </p>
+                                                        <!-- .single-product-header -->
+                                                        <form enctype="multipart/form-data" method="POST" class="cart">
+                                                            <div class="quantity">
+                                                                <label for="quantity-input">Quantity</label>
+                                                                <input type="number" size="4" class="input-text qty text" title="Qty" value="1" name="soluong" id="quantity-input">
+                                                            </div>
+                                                            <!-- .quantity -->
+                                                            <button class="single_add_to_cart_button button alt" type="submit">Add to cart</button>
+                                                        </form>
+                                                            <!-- .cart -->
+                                                        <!-- .cart -->
+                                                    </div>
+                                                    <!-- .product-actions -->
+                                                </div>
+                                                <!-- .product-actions-wrapper -->
+                                            </div>
+                                            <!-- .entry-summary -->
+                                        </div>
+                                        <!-- .single-product-wrapper -->
+                                        <div class="woocommerce-tabs wc-tabs-wrapper">
+                                            <ul role="tablist" class="nav tabs wc-tabs">
+                                                <li class="nav-item specification_tab">
+                                                    <a class="nav-link" data-toggle="tab" role="tab" aria-controls="tab-specification" href="#tab-specification">Thông tin chi tiết</a>
+                                                </li>
+                                                <li class="nav-item description_tab">
+                                                    <a class="nav-link" data-toggle="tab" role="tab" aria-controls="tab-description" href="#tab-description">Giới thiệu sách</a>
+                                                </li>
+                                            </ul>
+                                            <!-- /.ec-tabs -->
+                                            <div class="tab-content">
+                                                <div class="tab-pane" id="tab-specification" role="tabpanel">
+                                                            <div class="tm-shop-attributes-detail like-column columns-3">
+                                                                <h3 class="tm-attributes-title">Chung</h3>
+                                                                <table class="shop_attributes">
+                                                                    <tbody>
+                                                                        <tr>
+                                                                            <th>Tác giả</th>
+                                                                            <td>
+                                                                                <p><a href="#" rel="tag">
+                                                                                        <%= book[0].tacgia %></a></p>
+                                                                            </td>
+                                                                        </tr>
+                                                                        <tr>
+                                                                            <th>Nhà phát hành</th>
+                                                                            <td>
+                                                                                <p><a href="#" rel="tag">
+                                                                                        <%= book[0].nhaphathanh %></a></p>
+                                                                            </td>
+                                                                        </tr>
+                                                                        <tr>
+                                                                            <th>SKU</th>
+                                                                            <td>
+                                                                                <p><a href="#" rel="tag">
+                                                                                        <%= book[0].SKU %></a></p>
+                                                                            </td>
+                                                                        </tr>
+                                                                        <tr>
+                                                                            <th>Nhà xuất bản</th>
+                                                                            <td>
+                                                                                <p><a href="#" rel="tag">
+                                                                                        <%= book[0].nhaxuatban %></a></p>
+                                                                            </td>
+                                                                        </tr>
+                                                                        <tr>
+                                                                            <th>Ngày xuất bản</th>
+                                                                            <td>
+                                                                                <p><a href="#" rel="tag">
+                                                                                        <%= book[0].ngayxuatban %></a></p>
+                                                                            </td>
+                                                                        </tr>
+                                                                        <tr>
+                                                                            <th>Thể loại</th>
+                                                                            <td>
+                                                                                <p><a href="#" rel="tag">
+                                                                                        <%= book[0].theloai %></a></p>
+                                                                            </td>
+                                                                        </tr>
+                
+                                                                    </tbody>
+                                                                </table>
+                                                                <!-- /.shop_attributes -->
+                                                                <h3 class="tm-attributes-title">Thông tin khác</h3>
+                                                                <table class="shop_attributes">
+                                                                    <tbody>
+                                                                        <tr>
+                                                                            <th>Kích thước</th>
+                                                                            <td>
+                                                                                <%= book[0].kichthuoc %>
+                                                                            </td>
+                                                                        </tr>
+                                                                        <tr>
+                                                                            <th>Số trang</th>
+                                                                            <td>
+                                                                                <%= book[0].sotrang %>
+                                                                            </td>
+                                                                        </tr>
+                
+                                                                    </tbody>
+                                                                </table>
+                                                                <!-- /.shop_attributes -->
+                                                            </div>
+                                                </div>
+                                                <div class="tab-pane panel wc-tab" id="tab-description" role="tabpanel">
+                                                    <h2>Tóm tắt</h2>
+                                                    <h1 style="text-align: center;"><%= book[0].tieude %></h1>
+                                                    <p style="text-align: center;max-width: 1160px;margin: auto auto 60px;"><%= book[0].mota %></p>                                                   
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!-- .section-landscape-products-carousel -->
+                                        <section class="section-landscape-products-carousel recently-viewed" id="recently-viewed">
+                                                <header class="section-header">
+                                                    <h2 class="section-title">Gần đây</h2>
+                                                    <nav class="custom-slick-nav"></nav>
+                                                </header>
+                                                <div class="products-carousel" data-ride="tm-slick-carousel" data-wrap=".products" data-slick="{&quot;slidesToShow&quot;:5,&quot;slidesToScroll&quot;:2,&quot;dots&quot;:true,&quot;arrows&quot;:true,&quot;prevArrow&quot;:&quot;&lt;a href=\&quot;#\&quot;&gt;&lt;i class=\&quot;tm tm-arrow-left\&quot;&gt;&lt;\/i&gt;&lt;\/a&gt;&quot;,&quot;nextArrow&quot;:&quot;&lt;a href=\&quot;#\&quot;&gt;&lt;i class=\&quot;tm tm-arrow-right\&quot;&gt;&lt;\/i&gt;&lt;\/a&gt;&quot;,&quot;appendArrows&quot;:&quot;#recently-viewed .custom-slick-nav&quot;,&quot;responsive&quot;:[{&quot;breakpoint&quot;:992,&quot;settings&quot;:{&quot;slidesToShow&quot;:2,&quot;slidesToScroll&quot;:2}},{&quot;breakpoint&quot;:1200,&quot;settings&quot;:{&quot;slidesToShow&quot;:3,&quot;slidesToScroll&quot;:3}},{&quot;breakpoint&quot;:1400,&quot;settings&quot;:{&quot;slidesToShow&quot;:3,&quot;slidesToScroll&quot;:3}},{&quot;breakpoint&quot;:1700,&quot;settings&quot;:{&quot;slidesToShow&quot;:4,&quot;slidesToScroll&quot;:4}}]}">
+                                                    <div class="container-fluid">
+                                                        <div class="woocommerce columns-5">
+                                                            <div class="products">
+                                                                <!--
+                                                                <div class="landscape-product product">
+                                                                    <a class="woocommerce-LoopProduct-link" href="single-product-fullwidth.html">
+                                                                        <div class="media">
+                                                                            <img class="wp-post-image" src="/assets/images/products/card-3.jpg" alt="">
+                                                                            <div class="media-body">
+                                                                                <span class="price">
+                                                                                    <ins>
+                                                                                        <span class="amount"> $3,788.00</span>
+                                                                                    </ins>
+                                                                                    <del>
+                                                                                        <span class="amount">$4,780.00</span>
+                                                                                    </del>
+                                                                                    <span class="amount"> </span>
+                                                                                </span>
+                                                                                <!-- .price 
+                                                                                <h2 class="woocommerce-loop-product__title">PowerBank 4400</h2>
+                                                                                <div class="techmarket-product-rating">
+                                                                                    <div title="Rated 0 out of 5" class="star-rating">
+                                                                                        <span style="width:0%">
+                                                                                            <strong class="rating">0</strong> out of 5</span>
+                                                                                    </div>
+                                                                                    <span class="review-count">(0)</span>
+                                                                                </div>
+                                                                                <!-- .techmarket-product-rating 
+                                                                            </div>
+                                                                            <!-- .media-body 
+                                                                        </div>
+                                                                        <!-- .media 
+                                                                    </a>
+                                                                    <!-- .woocommerce-LoopProduct-link 
+                                                                </div>
+                                                                <!-- .landscape-product 
+                                                                -->
+                                                            </div>
+                                                        </div>
+                                                        <!-- .woocommerce -->
+                                                    </div>
+                                                    <!-- .container-fluid -->
+                                                </div>
+                                                <!-- .products-carousel -->
+                                        </section>
+                                    </div>
+                                    <!-- .product -->
+                                </main>
+                                <!-- #main -->
+                            </div>
+                            <!-- #primary -->
+                        </div>
+                        <!-- .row -->
+                    </div>
+                    <!-- .col-full -->
+            </div>
+            <!-- #content -->
+            <% include ./partials/footer %>
+            <!-- .site-footer -->
+        </div>
+
+        <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
+        <script>
+            function formatNumber(nStr, decSeperate, groupSeperate) {
+                nStr += '';
+                x = nStr.split(decSeperate);
+                x1 = x[0];
+                x2 = x.length > 1 ? '.' + x[1] : '';
+                var rgx = /(\d+)(\d{3})/;
+                while (rgx.test(x1)) {
+                    x1 = x1.replace(rgx, '$1' + groupSeperate + '$2');
+                }
+                return x1 + x2;
+            }
+
+            $(function(){
+                    $('form').on('submit', function(e) {
+                        e.preventDefault(); // using this page stop being refreshing 
+
+                        $.ajax({
+                            type: 'POST',
+                            data: $('form').serialize(),
+                            dataType: 'json',
+                            success: function (data) {
+                                //alert('form was submitted'+data);
+                                $('.update-totalPrice').html(formatNumber(data.totalPrice,'.',',')+'₫');
+                                $('.update-totalQty').html(data.totalQty);
+                            
+                                var update = '';
+                                data.products.forEach(itc => {
+                                    update += '<li class="woocommerce-mini-cart-item mini_cart_item">';
+                                    update += '<a onclick="deleteCartItem(\''+ itc.item._bookID +'\')" class="remove" aria-label="Remove this item"';
+                                    update += 'data-product_id="65" data-product_sku="">×</a>';
+                                    update += '<a href="/product/'+ itc.item.linkseo +'_'+ itc.item._bookID +'">';
+                                    update += '<img src="'+ itc.item.hinhanh[0] +'" class="attachment-shop_thumbnail size-shop_thumbnail wp-post-image" alt="">';
+                                    update += itc.item.tieude +'</a><span class="quantity"> '+ itc.qty +'×';
+                                    update += '<span class="woocommerce-Price-amount amount">';
+                                    update += formatNumber(itc.item.gia,'.',',') +'<span class="woocommerce-Price-currencySymbol">₫</span></span>';
+                                    update += '</span> </li>';
+                                });
+    
+                                $('.update-products').html(update);
+
+                                var $div2blink = $(".divtoBlink"); // Save reference, only look this item up once, then save
+                                var backgroundInterval = setInterval(function(){
+                                    $div2blink.toggleClass("backgroundRed");
+                                },500);
+
+                                setTimeout(function(){
+	                                window.clearInterval(backgroundInterval);
+                                }, 2000)
+                            }
+                        });
+                    });
+                });
+        </script>
+
+        <script type="text/javascript" src="/assets/js/jquery.min.js"></script>
+        <script type="text/javascript" src="/assets/js/tether.min.js"></script>
+        <script type="text/javascript" src="/assets/js/bootstrap.min.js"></script>
+        <script type="text/javascript" src="/assets/js/jquery-migrate.min.js"></script>
+        <script type="text/javascript" src="/assets/js/hidemaxlistitem.min.js"></script>
+        <script type="text/javascript" src="/assets/js/jquery-ui.min.js"></script>
+        <script type="text/javascript" src="/assets/js/hidemaxlistitem.min.js"></script>
+        <script type="text/javascript" src="/assets/js/jquery.easing.min.js"></script>
+        <script type="text/javascript" src="/assets/js/scrollup.min.js"></script>
+        <script type="text/javascript" src="/assets/js/jquery.waypoints.min.js"></script>
+        <script type="text/javascript" src="/assets/js/waypoints-sticky.min.js"></script>
+        <script type="text/javascript" src="/assets/js/pace.min.js"></script>
+        <script type="text/javascript" src="/assets/js/slick.min.js"></script>
+        <script type="text/javascript" src="/assets/js/scripts.js"></script>
+        
+    </body>
+</html>
